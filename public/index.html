@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Civic Audit Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans antialiased min-h-screen">
+
+    <div class="container mx-auto p-6 max-w-6xl">
+        <header class="mb-10 border-b border-gray-800 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-mono font-bold tracking-tight text-white">Civic Accountability Dashboard</h1>
+                <p class="text-sm text-gray-400 mt-1">Cross-referencing ministerial projects, tender compliance, and real-time regression indicators.</p>
+            </div>
+            <div class="bg-blue-950/50 border border-blue-800 px-4 py-2 rounded-lg text-xs text-blue-400 font-mono">
+                Telemetry Engine Run Status: <span class="text-green-400 font-bold animate-pulse">Synced (12h Loop)</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-4">
+                <h2 class="text-lg font-mono font-semibold text-emerald-400 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Active Project Status Ledger
+                </h2>
+                <div id="project-matrix-container" class="grid gap-4">
+                    <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl text-center text-gray-500 animate-pulse">
+                        Synchronizing remote data feeds...
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-lg font-mono font-semibold text-purple-400 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-400"></span> News Core Feed
+                </h2>
+                <div id="news-feed-container" class="bg-gray-900 border border-gray-800 p-5 rounded-xl space-y-4">
+                    <div class="text-center text-gray-500 animate-pulse text-sm">Loading headlines...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

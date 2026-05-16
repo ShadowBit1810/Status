@@ -1,0 +1,33 @@
+name: 12-Hour Data Sync
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Triggers every 12 hours
+  workflow_dispatch:      # Adds a manual "Run" button in GitHub Actions
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: pip install feedparser
+
+      - name: Run Scraper
+        run: python main.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
